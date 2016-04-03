@@ -23,3 +23,10 @@ $ stack runghc app/Main.hs
 or
 
 $ stack exec RLmaze-exe
+
+For more details
+================
+
+See the following article of my blog.
+
+http://blog.livedoor.jp/rtabaladi_58/archives/57727092.html
