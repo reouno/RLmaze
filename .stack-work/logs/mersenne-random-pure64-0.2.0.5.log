@@ -1,0 +1,35 @@
+Configuring mersenne-random-pure64-0.2.0.5...
+Building mersenne-random-pure64-0.2.0.5...
+Preprocessing library mersenne-random-pure64-0.2.0.5...
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+[1 of 4] Compiling System.Random.Mersenne.Pure64.Base ( .stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/System/Random/Mersenne/Pure64/Base.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/System/Random/Mersenne/Pure64/Base.o )
+[2 of 4] Compiling System.Random.Mersenne.Pure64.Internal ( System/Random/Mersenne/Pure64/Internal.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/System/Random/Mersenne/Pure64/Internal.o )
+[3 of 4] Compiling System.Random.Mersenne.Pure64.MTBlock ( System/Random/Mersenne/Pure64/MTBlock.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/System/Random/Mersenne/Pure64/MTBlock.o )
+[4 of 4] Compiling System.Random.Mersenne.Pure64 ( System/Random/Mersenne/Pure64.hs, .stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/System/Random/Mersenne/Pure64.o )
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+clang: warning: optimization flag '-finline-functions' is not supported
+clang: warning: argument unused during compilation: '-finline-functions'
+clang: warning: argument unused during compilation: '--param max-inline-insns-single=1800'
+In-place registering mersenne-random-pure64-0.2.0.5...
+Installing library in
+/Users/reo/.stack/snapshots/x86_64-osx/lts-5.10/7.10.3/lib/x86_64-osx-ghc-7.10.3/mersenne-random-pure64-0.2.0.5-42koSxEhmjwBS69WXi19xI
+Registering mersenne-random-pure64-0.2.0.5...
