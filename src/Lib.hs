@@ -5,16 +5,15 @@ module Lib
     , Direction
     , Cell (..)
     , get_barriers
-    , get_actions, get_actions'
+    , get_actions
     , init_Qs
-    , get_Qs, get_Qs'
     , temper
-    , calc_p
+    , calc_p, choose_action
     , take_action
     , move
-    , get_reward, get_reward'
+    , get_reward
     , update_Q
-    , episodes, episodes'
+    , episodes
     , show_field
     ) where
 
@@ -68,13 +67,8 @@ get_barriers' field current_position = up ++ down ++ left ++ right
         left = if field Vec.! row Vec.! (col-1) == W then [ToLeft] else []
         right = if field Vec.! row Vec.! (col+1) == W then [ToRight] else []
 
-get_actions :: Foldable t => Vec.Vector (t a) -> (Int, Int) -> [Direction]
+get_actions :: Field Cell -> (Int, Int) -> [Direction]
 get_actions field current_position = filter (flip notElem barriers) [ToUp, ToDown, ToLeft, ToRight]
-    where barriers = get_barriers field current_position
--- 移動可能な方向のリストを作成
-
-get_actions' :: Field Cell -> (Int, Int) -> [Direction]
-get_actions' field current_position = filter (flip notElem barriers) [ToUp, ToDown, ToLeft, ToRight]
     where barriers = get_barriers' field current_position
 -- 移動可能な方向のリストを作成
 
@@ -84,8 +78,7 @@ init_Qs actions randNum = Map.fromList $ zip actions randNums
 -- 可能な行動のQ値を新たに生成する
 -- randNumsの各要素は、[0, 0.001)の範囲
 
-get_Qs :: Foldable t
-           => Vec.Vector (t a)
+get_Qs :: Field Cell
            -> (Int, Int)
            -> VValues (Int, Int) (QValues Direction Double)
            -> Word64
@@ -96,19 +89,6 @@ get_Qs field current_position qs randNum =
         then (qs Map.! current_position, qs)
         else (qs_init, Map.insert current_position qs_init qs)
             where qs_init = init_Qs (get_actions field current_position) randNum
--- randNumはWord64型
-
-get_Qs' :: Field Cell
-           -> (Int, Int)
-           -> VValues (Int, Int) (QValues Direction Double)
-           -> Word64
-           -> (QValues Direction Double,
-               VValues (Int, Int) (QValues Direction Double))
-get_Qs' field current_position qs randNum =
-    if Map.member current_position qs == True
-        then (qs Map.! current_position, qs)
-        else (qs_init, Map.insert current_position qs_init qs)
-            where qs_init = init_Qs (get_actions' field current_position) randNum
 -- randNumはWord64型
 
 temper :: Integral a => a -> Double
@@ -155,11 +135,8 @@ move current_position action
     | otherwise        = (fst current_position, snd current_position + 1)
 -- 座標を移動する（状態遷移）
 
-get_reward :: Field a -> (Int, Int) -> a
-get_reward field current_position = field Vec.! (fst current_position) Vec.! (snd current_position)
-
-get_reward' :: Num a => Field Cell -> (Int, Int) -> a
-get_reward' field current_position =
+get_reward :: Num a => Field Cell -> (Int, Int) -> a
+get_reward field current_position =
     if field Vec.! (fst current_position) Vec.! (snd current_position) == G
         then 100
         else 0
@@ -180,7 +157,7 @@ update_Q prev_position action reward qs = Map.alter new_qs prev_position qs
 
 episode :: Integral a =>
            a
-           -> Field Double
+           -> Field Cell
            -> (Int, Int)
            -> Direction
            -> VValues (Int, Int) (QValues Direction Double)
@@ -200,59 +177,21 @@ episode t field prev_position action qs randNums =
 -- これは、START(0, 0)から行動をはじめて、正の報酬を得るまで行動し続ける関数
 -- randNumsは[Word64]型
 
-episode' :: Integral a =>
-           a
-           -> Field Cell
-           -> (Int, Int)
-           -> Direction
-           -> VValues (Int, Int) (QValues Direction Double)
-           -> [Word64]
-           -> (a, VValues (Int, Int) (QValues Direction Double))
-episode' t field prev_position action qs randNums =
-    let
-        current_position = move prev_position action
-        reward = get_reward' field current_position
-        (_, qs') = get_Qs' field current_position qs $ randNums!!0
-        qs'' = update_Q prev_position action reward qs'
-        action' = Map.keys (qs'' Map.! current_position) !! (take_action t (Map.elems $ qs'' Map.! current_position) $ fromIntegral (randNums!!1) / (2^64 - 1))
-    in
-        if reward > 0
-            then (t+1, qs'')
-            else episode' (t+1) field current_position action' qs'' $ drop 2 randNums
--- これは、START(0, 0)から行動をはじめて、正の報酬を得るまで行動し続ける関数
--- randNumsは[Word64]型
-
 episodes :: Integral t =>
             t
-            -> Field Double
+            -> Field Cell
             -> VValues (Int, Int) (QValues Direction Double)
             -> Word64
             -> VValues (Int, Int) (QValues Direction Double)
 episodes count field qs randNum =
     let
         randNums = randomWord64s $ pureMT randNum
-        action = Map.keys (qs Map.! (0,0)) !! (take_action count (Map.elems $ qs Map.! (0,0)) $ fromIntegral (randNums!!0) / (2^64 - 1))
-        (_, qs') = episode count field (0,0) action qs $ drop 2 randNums
+        action = Map.keys (qs Map.! (1,1)) !! (take_action count (Map.elems $ qs Map.! (1,1)) $ fromIntegral (randNums!!0) / (2^64 - 1))
+        (_, qs') = episode count field (1,1) action qs $ drop 2 randNums
     in
         if count > 999
             then qs'
             else episodes (count+1) field qs' $ randNums!!1
-
-episodes' :: Integral t =>
-            t
-            -> Field Cell
-            -> VValues (Int, Int) (QValues Direction Double)
-            -> Word64
-            -> VValues (Int, Int) (QValues Direction Double)
-episodes' count field qs randNum =
-    let
-        randNums = randomWord64s $ pureMT randNum
-        action = Map.keys (qs Map.! (1,1)) !! (take_action count (Map.elems $ qs Map.! (1,1)) $ fromIntegral (randNums!!0) / (2^64 - 1))
-        (_, qs') = episode' count field (1,1) action qs $ drop 2 randNums
-    in
-        if count > 999
-            then qs'
-            else episodes' (count+1) field qs' $ randNums!!1
 
 show_field :: Integral a =>
                [(a, Int)]

@@ -19,9 +19,9 @@ main = do
     gen <- newPureMT
     let (r0, gen') = randomWord64 gen
     let (r1, _) = randomWord64 gen'
-    let q = init_Qs (get_actions' field (1,1)) r0
+    let q = init_Qs (get_actions field (1,1)) r0
     let qs = Map.fromList [((1,1),q)]
-    let learned_Qs = episodes' 0 field qs r1
+    let learned_Qs = episodes 0 field qs r1
 -- 以下の1行は、1001回目のエピソード（SからGまでの行動）を実行し、そこで通った経路を得る（trace）
     trace <- learned_actions field (1,1) learned_Qs []
     --print $ length trace -- 学習が成功した時のこの数字を、学習成功率測定で使う
@@ -91,9 +91,9 @@ learn_1000 = do
     gen <- newPureMT
     let (r0, gen') = randomWord64 gen
     let (r1, _) = randomWord64 gen'
-    let q = init_Qs (get_actions' field (1,1)) r0
+    let q = init_Qs (get_actions field (1,1)) r0
     let qs = Map.fromList [((1,1),q)]
-    let learned_Qs = episodes' 0 field qs r1
+    let learned_Qs = episodes 0 field qs r1
     trace <- learned_actions field (1,1) learned_Qs []
     --print trace
     return $ length trace

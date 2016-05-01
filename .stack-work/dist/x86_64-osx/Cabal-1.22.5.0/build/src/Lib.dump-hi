@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-04-03 03:23:42.671621 UTC
+2016-04-17 08:43:01.657557 UTC
 
 interface RLmaz_6v2m9a4QblzKGxRWi4tEqe:Lib 7103
-  interface hash: 3de33e8cb6228342223b2f191a07e81d
-  ABI hash: 4a685bbf62aa3a373203845e6fd687e2
-  export-list hash: c13459675e3b5d0d302cc05699576705
+  interface hash: f0c0d6b783e6d7735ad24002ddc602b1
+  ABI hash: 4160d901a0bcabd1bf02af9e97194739
+  export-list hash: d521548528f4666115662262da885527
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 4c0a7b65a6dddbc4161c2e2bfabe3dc3
   sig of: Nothing
@@ -13,15 +13,11 @@ interface RLmaz_6v2m9a4QblzKGxRWi4tEqe:Lib 7103
   where
 exports:
   Lib.calc_p
+  Lib.choose_action
   Lib.episodes
-  Lib.episodes'
-  Lib.get_Qs
-  Lib.get_Qs'
   Lib.get_actions
-  Lib.get_actions'
   Lib.get_barriers
   Lib.get_reward
-  Lib.get_reward'
   Lib.init_Qs
   Lib.move
   Lib.show_field
@@ -599,8 +595,8 @@ d266fb5f99ceb3920341578c1a7c1397
     Data.Map.Base.Map Lib.Direction a1
     -> [(Lib.Direction, a1)] -> Data.Map.Base.Map Lib.Direction a1
   {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
-486901886dc0750a1e438da86ecd5a0b
-  $sinsert_$sgo4 ::
+07428965d7d634713a64f67400499a02
+  $sinsert_$sgo1 ::
     Lib.Direction
     -> a1
     -> Data.Map.Base.Map Lib.Direction a1
@@ -644,68 +640,8 @@ d266fb5f99ceb3920341578c1a7c1397
                         GHC.Types.True -> 1.0 } }
                    GHC.Types.True
                    -> case Lib.$s^1 ret_ty GHC.Prim.Double# of {} } }) -}
-1e2098076ba6494bfef3478793f7153d
-  $w$sget_barriers ::
-    Data.Vector.Vector (Data.Vector.Vector a)
-    -> GHC.Prim.Int# -> GHC.Types.Int -> [Lib.Direction]
-  {- Arity: 3, Strictness: <L,1*U(U,U,U)><S,U><L,U(U)>, Inline: [0],
-     Unfolding: (\ @ a
-                   w :: Data.Vector.Vector (Data.Vector.Vector a)
-                   ww :: GHC.Prim.Int#
-                   ww1 :: GHC.Types.Int ->
-                 let {
-                   n :: [Lib.Direction]
-                   = case w of ww2 { Data.Vector.Vector ww3 ww4 ww5 ->
-                     case Data.Vector.$w$clength
-                            @ (Data.Vector.Vector a)
-                            ww4
-                            ww5 of ww6 { DEFAULT ->
-                     let {
-                       n1 :: [Lib.Direction]
-                       = case ww1 of wild { GHC.Types.I# x ->
-                         case Data.Vector.Generic.length
-                                @ Data.Vector.Vector
-                                @ (Data.Vector.Vector a)
-                                (Lib.get_Qs6 @ a)
-                                ww2 of wild3 { GHC.Types.I# y ->
-                         case GHC.Prim.tagToEnum#
-                                @ GHC.Types.Bool
-                                (GHC.Prim.<# 0 y) of wild4 {
-                           GHC.Types.False
-                           -> case Lib.get_Qs5 @ a y ret_ty [Lib.Direction] of {}
-                           GHC.Types.True
-                           -> case GHC.Prim.indexArray#
-                                     @ (Data.Vector.Vector a)
-                                     ww5
-                                     ww3 of ds2 { (##) ipv ->
-                              case ipv of ww7 { Data.Vector.Vector ww8 ww9 ww10 ->
-                              case Data.Vector.$w$clength @ a ww9 ww10 of ww11 { DEFAULT ->
-                              case GHC.Prim.tagToEnum#
-                                     @ GHC.Types.Bool
-                                     (GHC.Prim.==# x (GHC.Prim.-# ww11 1)) of wild1 {
-                                GHC.Types.False -> GHC.Types.[] @ Lib.Direction
-                                GHC.Types.True -> Lib.get_Qs4 } } } } } } }
-                     } in
-                     case GHC.Prim.tagToEnum#
-                            @ GHC.Types.Bool
-                            (GHC.Prim.==# ww (GHC.Prim.-# ww6 1)) of wild {
-                       GHC.Types.False
-                       -> case ww1 of wild1 { GHC.Types.I# x ->
-                          case x of wild2 {
-                            DEFAULT -> n1 0 -> GHC.Types.: @ Lib.Direction Lib.ToLeft n1 } }
-                       GHC.Types.True
-                       -> GHC.Types.:
-                            @ Lib.Direction
-                            Lib.ToDown
-                            (case ww1 of wild1 { GHC.Types.I# x ->
-                             case x of wild2 {
-                               DEFAULT -> n1
-                               0 -> GHC.Types.: @ Lib.Direction Lib.ToLeft n1 } }) } } }
-                 } in
-                 case ww of wild {
-                   DEFAULT -> n 0 -> GHC.Types.: @ Lib.Direction Lib.ToUp n }) -}
-cf0b31effa7a429cf86e880d7fef908d
-  $w$sget_reward' ::
+c508a54acabb9a86e182d9a21129a63c
+  $w$sget_reward ::
     GHC.Prim.Int#
     -> GHC.Prim.Int#
     -> GHC.Prim.Array# (Data.Vector.Vector Lib.Cell)
@@ -725,18 +661,18 @@ cf0b31effa7a429cf86e880d7fef908d
                    -> case Data.Vector.Generic.length
                              @ Data.Vector.Vector
                              @ (Data.Vector.Vector Lib.Cell)
-                             Lib.get_reward'4
+                             Lib.get_reward4
                              (Data.Vector.Vector
                                 @ (Data.Vector.Vector Lib.Cell)
                                 ww
                                 ww1
                                 ww2) of wild3 { GHC.Types.I# n# ->
-                      case Lib.get_reward'3 n# ww3 ret_ty GHC.Prim.Double# of {} }
+                      case Lib.get_reward3 n# ww3 ret_ty GHC.Prim.Double# of {} }
                    GHC.Types.True
                    -> case Data.Vector.Generic.length
                              @ Data.Vector.Vector
                              @ (Data.Vector.Vector Lib.Cell)
-                             Lib.get_reward'4
+                             Lib.get_reward4
                              (Data.Vector.Vector
                                 @ (Data.Vector.Vector Lib.Cell)
                                 ww
@@ -746,7 +682,7 @@ cf0b31effa7a429cf86e880d7fef908d
                              @ GHC.Types.Bool
                              (GHC.Prim.<# ww3 y) of wild4 {
                         GHC.Types.False
-                        -> case Lib.get_reward'3 y ww3 ret_ty GHC.Prim.Double# of {}
+                        -> case Lib.get_reward3 y ww3 ret_ty GHC.Prim.Double# of {}
                         GHC.Types.True
                         -> case GHC.Prim.indexArray#
                                   @ (Data.Vector.Vector Lib.Cell)
@@ -760,20 +696,20 @@ cf0b31effa7a429cf86e880d7fef908d
                              -> case Data.Vector.Generic.length
                                        @ Data.Vector.Vector
                                        @ Lib.Cell
-                                       Lib.get_reward'2
+                                       Lib.get_reward2
                                        ww5 of wild5 { GHC.Types.I# n# ->
-                                case Lib.get_reward'1 n# ww4 ret_ty GHC.Prim.Double# of {} }
+                                case Lib.get_reward1 n# ww4 ret_ty GHC.Prim.Double# of {} }
                              GHC.Types.True
                              -> case Data.Vector.Generic.length
                                        @ Data.Vector.Vector
                                        @ Lib.Cell
-                                       Lib.get_reward'2
+                                       Lib.get_reward2
                                        ww5 of wild5 { GHC.Types.I# y1 ->
                                 case GHC.Prim.tagToEnum#
                                        @ GHC.Types.Bool
                                        (GHC.Prim.<# ww4 y1) of wild6 {
                                   GHC.Types.False
-                                  -> case Lib.get_reward'1 y1 ww4 ret_ty GHC.Prim.Double# of {}
+                                  -> case Lib.get_reward1 y1 ww4 ret_ty GHC.Prim.Double# of {}
                                   GHC.Types.True
                                   -> case GHC.Prim.indexArray#
                                             @ Lib.Cell
@@ -910,25 +846,53 @@ fc92e1bc0b9f41d8070745c71badb258
     [GHC.Types.Double]
     -> GHC.Prim.Int# -> GHC.Prim.Double# -> GHC.Prim.Int#
   {- Arity: 3, Strictness: <S,1*U><L,U><L,U>, Inline: [0] -}
-af1b1bb5162691503de1d342904d1800
+d9f36ee18ae31c0e12ba15c76e14a5bc
+  $wchoose_action1 ::
+    (GHC.Num.Num a, GHC.Classes.Ord a) =>
+    [a] -> GHC.Prim.Int# -> a -> GHC.Prim.Int#
+  {- Arity: 5,
+     Strictness: <L,U(C(C1(U)),A,A,A,A,A,1*C1(U))><S(LLLC(C(S))LLLL),U(A,A,A,C(C1(U)),C(C1(U)),A,A,A)><S,1*U><L,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   w :: GHC.Num.Num a
+                   w1 :: GHC.Classes.Ord a
+                   w2 :: [a]
+                   ww :: GHC.Prim.Int#
+                   w3 :: a ->
+                 let {
+                   lvl35 :: a = GHC.Num.fromInteger @ a w Lib.choose_action3
+                 } in
+                 letrec {
+                   $wchoose_action2 :: [a] -> GHC.Prim.Int# -> a -> GHC.Prim.Int#
+                     {- Arity: 3, Strictness: <S,1*U><L,U><L,U>, Inline: [0] -}
+                   = \ w4 :: [a] ww1 :: GHC.Prim.Int# w5 :: a ->
+                     case w4 of wild {
+                       [] -> case Lib.choose_action2 ret_ty GHC.Prim.Int# of {}
+                       : x0 ds
+                       -> case GHC.Classes.<= @ a w1 w5 x0 of wild1 {
+                            GHC.Types.False
+                            -> case GHC.Classes.> @ a w1 w5 lvl35 of wild2 {
+                                 GHC.Types.False
+                                 -> case ds of wild3 {
+                                      []
+                                      -> $wchoose_action2
+                                           (GHC.Types.: @ a x0 (GHC.Types.[] @ a))
+                                           ww1
+                                           w5
+                                      : x1 xs
+                                      -> $wchoose_action2
+                                           (GHC.Types.: @ a (GHC.Num.+ @ a w x0 x1) xs)
+                                           ww1
+                                           w5 }
+                                 GHC.Types.True
+                                 -> case Lib.choose_action1 ret_ty GHC.Prim.Int# of {} }
+                            GHC.Types.True
+                            -> case GHC.List.$wlenAcc @ a wild 0 of ww2 { DEFAULT ->
+                               GHC.Prim.-# ww1 ww2 } } }
+                 } in
+                 $wchoose_action2 w2 ww w3) -}
+f4a66941134e1a8d751431b2be304cf9
   $wepisodes ::
-    GHC.Real.Integral t =>
-    t
-    -> GHC.Prim.Int#
-    -> GHC.Prim.Int#
-    -> GHC.Prim.Array# (Data.Vector.Vector GHC.Types.Double)
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
-    -> GHC.Word.Word64
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
-  {- Arity: 7,
-     Strictness: <S(SLLLLLLLL),U(U,A,A,A,A,A,A,A,C(U))><L,U><L,U><L,U><L,U><S,U><L,1*U(U)>,
-     Inline: [0] -}
-70f92763d9bb3155034e2f82e2de4803
-  $wepisodes' ::
     GHC.Real.Integral t =>
     t
     -> GHC.Prim.Int#
@@ -948,107 +912,7 @@ af1b1bb5162691503de1d342904d1800
   $wf ::
     GHC.Prim.Double# -> GHC.Integer.Type.Integer -> GHC.Prim.Double#
   {- Arity: 2, Strictness: <L,U><L,U>, Inline: [0] -}
-9ba9037c433b9f9405b464840cb210a8
-  $wget_Qs ::
-    Data.Foldable.Foldable t =>
-    Data.Vector.Vector (t a)
-    -> GHC.Types.Int
-    -> GHC.Types.Int
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
-    -> GHC.Word.Word64
-    -> (# Lib.QValues Lib.Direction GHC.Types.Double,
-          Lib.VValues
-            (GHC.Types.Int, GHC.Types.Int)
-            (Lib.QValues Lib.Direction GHC.Types.Double) #)
-  {- Arity: 6,
-     Strictness: <L,1*U(A,A,A,A,A,A,A,A,A,A,1*C1(U(U)),A,A,A,A,A)><L,1*U(U,U,U)><L,U(U)><L,U(U)><S,U><L,1*U(U)>,
-     Inline: [0],
-     Unfolding: (\ @ (t :: * -> *)
-                   @ a
-                   w :: Data.Foldable.Foldable t
-                   w1 :: Data.Vector.Vector (t a)
-                   ww :: GHC.Types.Int
-                   ww1 :: GHC.Types.Int
-                   w2 :: Lib.VValues
-                           (GHC.Types.Int, GHC.Types.Int)
-                           (Lib.QValues Lib.Direction GHC.Types.Double)
-                   w3 :: GHC.Word.Word64 ->
-                 case Lib.$wpoly_go1
-                        @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                        ww
-                        ww1
-                        w2 of wild {
-                   GHC.Types.False
-                   -> let {
-                        qs_init :: Lib.QValues Lib.Direction GHC.Types.Double
-                        = Lib.get_Qs_$sinit_Qs (Lib.get_actions @ t @ a w w1 (ww, ww1)) w3
-                      } in
-                      (# qs_init,
-                         Lib.$w$sgo4
-                           @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                           ww
-                           ww1
-                           qs_init
-                           w2 #)
-                   GHC.Types.True
-                   -> (# case ww of ww2 { GHC.Types.I# ww3 ->
-                         Lib.$wpoly_go10
-                           @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                           ww3
-                           ww1
-                           w2 },
-                         w2 #) }) -}
-ccd40df65e4501299c2c012270dbb436
-  $wget_Qs' ::
-    Lib.Field Lib.Cell
-    -> GHC.Types.Int
-    -> GHC.Types.Int
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
-    -> GHC.Word.Word64
-    -> (# Lib.QValues Lib.Direction GHC.Types.Double,
-          Lib.VValues
-            (GHC.Types.Int, GHC.Types.Int)
-            (Lib.QValues Lib.Direction GHC.Types.Double) #)
-  {- Arity: 5,
-     Strictness: <L,U(U,U,U)><L,U(U)><L,U(U)><S,U><L,1*U(U)>,
-     Inline: [0],
-     Unfolding: (\ w :: Lib.Field Lib.Cell
-                   ww :: GHC.Types.Int
-                   ww1 :: GHC.Types.Int
-                   w1 :: Lib.VValues
-                           (GHC.Types.Int, GHC.Types.Int)
-                           (Lib.QValues Lib.Direction GHC.Types.Double)
-                   w2 :: GHC.Word.Word64 ->
-                 case Lib.$wpoly_go1
-                        @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                        ww
-                        ww1
-                        w1 of wild {
-                   GHC.Types.False
-                   -> let {
-                        qs_init :: Lib.QValues Lib.Direction GHC.Types.Double
-                        = Lib.get_Qs_$sinit_Qs (Lib.get_actions' w (ww, ww1)) w2
-                      } in
-                      (# qs_init,
-                         Lib.$w$sgo4
-                           @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                           ww
-                           ww1
-                           qs_init
-                           w1 #)
-                   GHC.Types.True
-                   -> (# case ww of ww2 { GHC.Types.I# ww3 ->
-                         Lib.$wpoly_go10
-                           @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                           ww3
-                           ww1
-                           w1 },
-                         w1 #) }) -}
-90726ed0f52693b25fc580685bc195ac
+40d9f0cf9786df08bb0be37e90811dff
   $wget_barriers ::
     Data.Foldable.Foldable t =>
     Data.Vector.Vector (t a)
@@ -1076,12 +940,12 @@ ccd40df65e4501299c2c012270dbb436
                                 (case Data.Vector.Generic.length
                                         @ Data.Vector.Vector
                                         @ (t a)
-                                        (Lib.get_actions2 @ t @ a)
+                                        (Lib.get_barriers3 @ t @ a)
                                         ww2 of wild3 { GHC.Types.I# y ->
                                  case GHC.Prim.tagToEnum#
                                         @ GHC.Types.Bool
                                         (GHC.Prim.<# 0 y) of wild4 {
-                                   GHC.Types.False -> Lib.get_actions1 @ t @ a y
+                                   GHC.Types.False -> Lib.get_barriers2 @ t @ a y
                                    GHC.Types.True
                                    -> case GHC.Prim.indexArray# @ (t a) ww5 ww3 of ds2 { (##) ipv ->
                                       ipv } } }) of wild1 { GHC.Types.I# x1 ->
@@ -1089,7 +953,7 @@ ccd40df65e4501299c2c012270dbb436
                                 @ GHC.Types.Bool
                                 (GHC.Prim.==# x (GHC.Prim.-# x1 1)) of wild2 {
                            GHC.Types.False -> GHC.Types.[] @ Lib.Direction
-                           GHC.Types.True -> Lib.get_Qs4 } } }
+                           GHC.Types.True -> Lib.get_barriers1 } } }
                      } in
                      case GHC.Prim.tagToEnum#
                             @ GHC.Types.Bool
@@ -1109,83 +973,8 @@ ccd40df65e4501299c2c012270dbb436
                  } in
                  case ww of wild {
                    DEFAULT -> n 0 -> GHC.Types.: @ Lib.Direction Lib.ToUp n }) -}
-01a27b8f5412f3a2b979003b472ef465
+01fdd303a08793377cc6aa1ed30d8503
   $wget_reward ::
-    GHC.Prim.Int#
-    -> GHC.Prim.Int#
-    -> GHC.Prim.Array# (Data.Vector.Vector a)
-    -> GHC.Prim.Int#
-    -> GHC.Prim.Int#
-    -> a
-  {- Arity: 5, Strictness: <L,U><L,U><L,U><L,U><L,U>, Inline: [0],
-     Unfolding: (\ @ a
-                   ww :: GHC.Prim.Int#
-                   ww1 :: GHC.Prim.Int#
-                   ww2 :: GHC.Prim.Array# (Data.Vector.Vector a)
-                   ww3 :: GHC.Prim.Int#
-                   ww4 :: GHC.Prim.Int# ->
-                 case GHC.Prim.tagToEnum#
-                        @ GHC.Types.Bool
-                        (GHC.Prim.>=# ww3 0) of wild2 {
-                   GHC.Types.False
-                   -> case Data.Vector.Generic.length
-                             @ Data.Vector.Vector
-                             @ (Data.Vector.Vector a)
-                             (Lib.get_Qs6 @ a)
-                             (Data.Vector.Vector
-                                @ (Data.Vector.Vector a)
-                                ww
-                                ww1
-                                ww2) of wild3 { GHC.Types.I# n# ->
-                      case Lib.get_reward3 @ a n# ww3 ret_ty a of {} }
-                   GHC.Types.True
-                   -> case Data.Vector.Generic.length
-                             @ Data.Vector.Vector
-                             @ (Data.Vector.Vector a)
-                             (Lib.get_Qs6 @ a)
-                             (Data.Vector.Vector
-                                @ (Data.Vector.Vector a)
-                                ww
-                                ww1
-                                ww2) of wild3 { GHC.Types.I# y ->
-                      case GHC.Prim.tagToEnum#
-                             @ GHC.Types.Bool
-                             (GHC.Prim.<# ww3 y) of wild4 {
-                        GHC.Types.False -> case Lib.get_reward3 @ a y ww3 ret_ty a of {}
-                        GHC.Types.True
-                        -> case GHC.Prim.indexArray#
-                                  @ (Data.Vector.Vector a)
-                                  ww2
-                                  (GHC.Prim.+# ww ww3) of ds2 { (##) ipv ->
-                           case ipv of ww5 { Data.Vector.Vector ww6 ww7 ww8 ->
-                           case GHC.Prim.tagToEnum#
-                                  @ GHC.Types.Bool
-                                  (GHC.Prim.>=# ww4 0) of wild1 {
-                             GHC.Types.False
-                             -> case Data.Vector.Generic.length
-                                       @ Data.Vector.Vector
-                                       @ a
-                                       (Lib.get_reward2 @ a)
-                                       ww5 of wild5 { GHC.Types.I# n# ->
-                                Lib.get_reward1 @ a n# ww4 }
-                             GHC.Types.True
-                             -> case Data.Vector.Generic.length
-                                       @ Data.Vector.Vector
-                                       @ a
-                                       (Lib.get_reward2 @ a)
-                                       ww5 of wild5 { GHC.Types.I# y1 ->
-                                case GHC.Prim.tagToEnum#
-                                       @ GHC.Types.Bool
-                                       (GHC.Prim.<# ww4 y1) of wild6 {
-                                  GHC.Types.False -> Lib.get_reward1 @ a y1 ww4
-                                  GHC.Types.True
-                                  -> case GHC.Prim.indexArray#
-                                            @ a
-                                            ww8
-                                            (GHC.Prim.+# ww6 ww4) of ds1 { (##) ipv1 ->
-                                     ipv1 } } } } } } } } }) -}
-ef250321f92e3c117d0b1b55a6aea9d1
-  $wget_reward' ::
     GHC.Num.Num a =>
     GHC.Prim.Int#
     -> GHC.Prim.Int#
@@ -1210,18 +999,18 @@ ef250321f92e3c117d0b1b55a6aea9d1
                    -> case Data.Vector.Generic.length
                              @ Data.Vector.Vector
                              @ (Data.Vector.Vector Lib.Cell)
-                             Lib.get_reward'4
+                             Lib.get_reward4
                              (Data.Vector.Vector
                                 @ (Data.Vector.Vector Lib.Cell)
                                 ww
                                 ww1
                                 ww2) of wild3 { GHC.Types.I# n# ->
-                      case Lib.get_reward'3 n# ww3 ret_ty a of {} }
+                      case Lib.get_reward3 n# ww3 ret_ty a of {} }
                    GHC.Types.True
                    -> case Data.Vector.Generic.length
                              @ Data.Vector.Vector
                              @ (Data.Vector.Vector Lib.Cell)
-                             Lib.get_reward'4
+                             Lib.get_reward4
                              (Data.Vector.Vector
                                 @ (Data.Vector.Vector Lib.Cell)
                                 ww
@@ -1230,7 +1019,7 @@ ef250321f92e3c117d0b1b55a6aea9d1
                       case GHC.Prim.tagToEnum#
                              @ GHC.Types.Bool
                              (GHC.Prim.<# ww3 y) of wild4 {
-                        GHC.Types.False -> case Lib.get_reward'3 y ww3 ret_ty a of {}
+                        GHC.Types.False -> case Lib.get_reward3 y ww3 ret_ty a of {}
                         GHC.Types.True
                         -> case GHC.Prim.indexArray#
                                   @ (Data.Vector.Vector Lib.Cell)
@@ -1244,19 +1033,19 @@ ef250321f92e3c117d0b1b55a6aea9d1
                              -> case Data.Vector.Generic.length
                                        @ Data.Vector.Vector
                                        @ Lib.Cell
-                                       Lib.get_reward'2
+                                       Lib.get_reward2
                                        ww5 of wild5 { GHC.Types.I# n# ->
-                                case Lib.get_reward'1 n# ww4 ret_ty a of {} }
+                                case Lib.get_reward1 n# ww4 ret_ty a of {} }
                              GHC.Types.True
                              -> case Data.Vector.Generic.length
                                        @ Data.Vector.Vector
                                        @ Lib.Cell
-                                       Lib.get_reward'2
+                                       Lib.get_reward2
                                        ww5 of wild5 { GHC.Types.I# y1 ->
                                 case GHC.Prim.tagToEnum#
                                        @ GHC.Types.Bool
                                        (GHC.Prim.<# ww4 y1) of wild6 {
-                                  GHC.Types.False -> case Lib.get_reward'1 y1 ww4 ret_ty a of {}
+                                  GHC.Types.False -> case Lib.get_reward1 y1 ww4 ret_ty a of {}
                                   GHC.Types.True
                                   -> case GHC.Prim.indexArray#
                                             @ Lib.Cell
@@ -1268,7 +1057,7 @@ ef250321f92e3c117d0b1b55a6aea9d1
                                        -> GHC.Num.fromInteger
                                             @ a
                                             w
-                                            Lib.get_reward'5 } } } } } } } } } }) -}
+                                            Lib.get_reward5 } } } } } } } } } }) -}
 7a71f98098c3121a1f7677e4be31f75c
   $wgo :: [GHC.Types.Double] -> GHC.Prim.Double# -> GHC.Prim.Double#
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [0] -}
@@ -1296,7 +1085,7 @@ c5b7abdf4fa2127404cee2716a7195e2
     -> Data.Map.Base.Map Lib.Direction GHC.Types.Double
     -> GHC.Prim.Double#
   {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>, Inline: [0] -}
-581a806957e47c83e346a8e8f06e2b32
+81e5ca9c49a8f8f13e649f393702b8f0
   $wmove ::
     (GHC.Num.Num b, GHC.Num.Num a) =>
     (a, b) -> Lib.Direction -> (# a, b #)
@@ -1320,13 +1109,13 @@ c5b7abdf4fa2127404cee2716a7195e2
                                @ b
                                w
                                (case w2 of wild1 { (,) ds1 y -> y })
-                               (GHC.Num.fromInteger @ b w Lib.move1) #)
+                               (GHC.Num.fromInteger @ b w Lib.choose_action3) #)
                        Lib.ToDown
                        -> (# GHC.Num.+
                                @ a
                                w1
                                (case w2 of wild1 { (,) x ds1 -> x })
-                               (GHC.Num.fromInteger @ a w1 Lib.move1),
+                               (GHC.Num.fromInteger @ a w1 Lib.choose_action3),
                              Data.Tuple.snd @ a @ b w2 #)
                        Lib.ToLeft
                        -> (# Data.Tuple.fst @ a @ b w2,
@@ -1334,7 +1123,7 @@ c5b7abdf4fa2127404cee2716a7195e2
                                @ b
                                w
                                (case w2 of wild1 { (,) ds1 y -> y })
-                               (GHC.Num.fromInteger @ b w Lib.move1) #) }
+                               (GHC.Num.fromInteger @ b w Lib.choose_action3) #) }
                  } in
                  case w3 of wild {
                    Lib.ToUp
@@ -1342,7 +1131,7 @@ c5b7abdf4fa2127404cee2716a7195e2
                            @ a
                            w1
                            (case w2 of wild1 { (,) x ds1 -> x })
-                           (GHC.Num.fromInteger @ a w1 Lib.move1),
+                           (GHC.Num.fromInteger @ a w1 Lib.choose_action3),
                          Data.Tuple.snd @ a @ b w2 #)
                    Lib.ToDown -> $w$j GHC.Prim.void#
                    Lib.ToLeft -> $w$j GHC.Prim.void#
@@ -1528,34 +1317,34 @@ aca1198447f2b5ac4817d08e90b5b8e9
                     } in
                     \ ds1 :: GHC.Types.Double -> GHC.Float.divideDouble ds1 ds)
                    numer) -}
-0d95869e941b1a95ff23fd930200ccec
-  episodes ::
-    GHC.Real.Integral t =>
-    t
-    -> Lib.Field GHC.Types.Double
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
-    -> GHC.Word.Word64
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
+c981942d8205364d0c34817ed8490e41
+  choose_action ::
+    (GHC.Num.Num a, GHC.Classes.Ord a) =>
+    [a] -> GHC.Types.Int -> a -> GHC.Types.Int
   {- Arity: 5,
-     Strictness: <S(SLLLLLLLL),U(U,A,A,A,A,A,A,A,C(U))><L,U><S,U(U,U,U)><S,U><L,1*U(U)>,
+     Strictness: <L,U(C(C1(U)),A,A,A,A,A,1*C1(U))><S(LLLC(C(S))LLLL),U(A,A,A,C(C1(U)),C(C1(U)),A,A,A)><S,1*U><S,1*U(U)><L,U>m,
      Inline: INLINE[0],
      Unfolding: InlineRule (5, True, False)
-                (\ @ t
-                   w :: GHC.Real.Integral t
-                   w1 :: t
-                   w2 :: Lib.Field GHC.Types.Double
-                   w3 :: Lib.VValues
-                           (GHC.Types.Int, GHC.Types.Int)
-                           (Lib.QValues Lib.Direction GHC.Types.Double)
-                   w4 :: GHC.Word.Word64 ->
-                 case w2 of ww { Data.Vector.Vector ww1 ww2 ww3 ->
-                 Lib.$wepisodes @ t w w1 ww1 ww2 ww3 w3 w4 }) -}
-fa72c466b481b3307d2056b8a515f66e
-  episodes' ::
+                (\ @ a
+                   w :: GHC.Num.Num a
+                   w1 :: GHC.Classes.Ord a
+                   w2 :: [a]
+                   w3 :: GHC.Types.Int
+                   w4 :: a ->
+                 case w3 of ww { GHC.Types.I# ww1 ->
+                 case Lib.$wchoose_action1 @ a w w1 w2 ww1 w4 of ww2 { DEFAULT ->
+                 GHC.Types.I# ww2 } }) -}
+cb0e2e589e431cec0149aa1f63ebab19
+  choose_action1 :: GHC.Types.Int
+  {- Strictness: b -}
+7d8293ddcd6803fcf309f04554d23d60
+  choose_action2 :: GHC.Types.Int
+  {- Strictness: b -}
+6df9ed40a8a2538c888d90a781cc3c21
+  choose_action3 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (__integer 1) -}
+0394a5a4c99e0fa5c8177820842b3a32
+  episodes ::
     GHC.Real.Integral t =>
     t
     -> Lib.Field Lib.Cell
@@ -1579,201 +1368,13 @@ fa72c466b481b3307d2056b8a515f66e
                            (Lib.QValues Lib.Direction GHC.Types.Double)
                    w4 :: GHC.Word.Word64 ->
                  case w2 of ww { Data.Vector.Vector ww1 ww2 ww3 ->
-                 Lib.$wepisodes' @ t w w1 ww1 ww2 ww3 w3 w4 }) -}
-2c2f555d550ac6640b144f253bb9fb5a
-  get_Qs ::
-    Data.Foldable.Foldable t =>
-    Data.Vector.Vector (t a)
-    -> (GHC.Types.Int, GHC.Types.Int)
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
-    -> GHC.Word.Word64
-    -> (Lib.QValues Lib.Direction GHC.Types.Double,
-        Lib.VValues
-          (GHC.Types.Int, GHC.Types.Int)
-          (Lib.QValues Lib.Direction GHC.Types.Double))
-  {- Arity: 5,
-     Strictness: <L,1*U(A,A,A,A,A,A,A,A,A,A,1*C1(U(U)),A,A,A,A,A)><L,1*U(U,U,U)><S,U(U(U),U(U))><S,U><L,1*U(U)>m,
-     Inline: INLINE[0],
-     Unfolding: InlineRule (5, True, False)
-                (\ @ (t :: * -> *)
-                   @ a
-                   w :: Data.Foldable.Foldable t
-                   w1 :: Data.Vector.Vector (t a)
-                   w2 :: (GHC.Types.Int, GHC.Types.Int)
-                   w3 :: Lib.VValues
-                           (GHC.Types.Int, GHC.Types.Int)
-                           (Lib.QValues Lib.Direction GHC.Types.Double)
-                   w4 :: GHC.Word.Word64 ->
-                 case w2 of ww { (,) ww1 ww2 ->
-                 case Lib.$wget_Qs
-                        @ t
-                        @ a
-                        w
-                        w1
-                        ww1
-                        ww2
-                        w3
-                        w4 of ww3 { (#,#) ww4 ww5 ->
-                 (ww4, ww5) } }) -}
-d76679a994234ee6e5d413d794699897
-  get_Qs' ::
-    Lib.Field Lib.Cell
-    -> (GHC.Types.Int, GHC.Types.Int)
-    -> Lib.VValues
-         (GHC.Types.Int, GHC.Types.Int)
-         (Lib.QValues Lib.Direction GHC.Types.Double)
-    -> GHC.Word.Word64
-    -> (Lib.QValues Lib.Direction GHC.Types.Double,
-        Lib.VValues
-          (GHC.Types.Int, GHC.Types.Int)
-          (Lib.QValues Lib.Direction GHC.Types.Double))
-  {- Arity: 4,
-     Strictness: <L,U(U,U,U)><S,U(U(U),U(U))><S,U><L,1*U(U)>m,
-     Inline: INLINE[0],
-     Unfolding: InlineRule (4, True, False)
-                (\ w :: Lib.Field Lib.Cell
-                   w1 :: (GHC.Types.Int, GHC.Types.Int)
-                   w2 :: Lib.VValues
-                           (GHC.Types.Int, GHC.Types.Int)
-                           (Lib.QValues Lib.Direction GHC.Types.Double)
-                   w3 :: GHC.Word.Word64 ->
-                 case w1 of ww { (,) ww1 ww2 ->
-                 case Lib.$wget_Qs' w ww1 ww2 w2 w3 of ww3 { (#,#) ww4 ww5 ->
-                 (ww4, ww5) } }) -}
-c9fa1ec6e631c39bd0bb6d8aa5e0b540
-  get_Qs1 :: [Lib.Direction]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.: @ Lib.Direction Lib.ToUp Lib.get_Qs2) -}
-565f50ff82932f6d85cc72943d4de74c
-  get_Qs2 :: [Lib.Direction]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.: @ Lib.Direction Lib.ToDown Lib.get_Qs3) -}
-051b6297f94257c9f2f597b9b5b8c65c
-  get_Qs3 :: [Lib.Direction]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.: @ Lib.Direction Lib.ToLeft Lib.get_Qs4) -}
-10e34add61238d43ee15ac6a36e283bd
-  get_Qs4 :: [Lib.Direction]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ Lib.Direction
-                   Lib.ToRight
-                   (GHC.Types.[] @ Lib.Direction)) -}
-7c3af6ea5aa32d92dc6bc8cec3ea3e1d
-  get_Qs5 :: GHC.Prim.Int# -> Data.Vector.Vector a
-  {- Arity: 1, Strictness: <L,U>b -}
-aeca80221d9b0bb3df10df24a8fca6d0
-  get_Qs6 ::
-    Data.Vector.Generic.Base.Vector
-      Data.Vector.Vector (Data.Vector.Vector a)
-  {- Unfolding: (\ @ a ->
-                 Data.Vector.$fVectorVectora
-                   @ (Data.Vector.Vector a)
-                   (Data.Vector.Mutable.$fMVectorMVectora @ (Data.Vector.Vector a))
-                     `cast`
-                   (Data.Vector.Generic.Mutable.Base.MVector
-                      (Sym (Data.Vector.TFCo:R:MutableVector[0]))
-                      <Data.Vector.Vector a>_N)_R) -}
-a03e9999a23653d3dccc93a49583f925
-  get_Qs7 :: GHC.Types.Double -> GHC.Types.Double
-  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U)>m,
-     Unfolding: InlineRule (1, True, False)
-                (\ ds :: GHC.Types.Double ->
-                 case ds of wild { GHC.Types.D# x ->
-                 GHC.Types.D# (GHC.Prim./## x 1000.0) }) -}
-946fdc949580099d791b9913db7b3627
-  get_Qs_$sget_actions ::
-    Data.Vector.Vector (Data.Vector.Vector a)
-    -> (GHC.Types.Int, GHC.Types.Int) -> [Lib.Direction]
-  {- Arity: 2, Strictness: <L,1*U(U,U,U)><L,1*U(1*U(U),U(U))>,
-     Unfolding: (\ @ a
-                   field :: Data.Vector.Vector (Data.Vector.Vector a)
-                   current_position :: (GHC.Types.Int, GHC.Types.Int) ->
-                 GHC.List.filter
-                   @ Lib.Direction
-                   (let {
-                      x :: [Lib.Direction]
-                      = case current_position of ww { (,) ww1 ww2 ->
-                        case ww1 of ww3 { GHC.Types.I# ww4 ->
-                        Lib.$w$sget_barriers @ a field ww4 ww2 } }
-                    } in
-                    \ y :: Lib.Direction ->
-                    case GHC.List.elem @ Lib.Direction Lib.$fEqDirection y x of wild {
-                      GHC.Types.False -> GHC.Types.True
-                      GHC.Types.True -> GHC.Types.False })
-                   Lib.get_Qs1) -}
-625bed4f70a0046e41a45428803fbde0
-  get_Qs_$sinit_Qs ::
-    [Lib.Direction]
-    -> GHC.Word.Word64 -> Lib.QValues Lib.Direction GHC.Types.Double
-  {- Arity: 2, Strictness: <S,1*U><L,1*U(U)>,
-     Unfolding: (\ actions :: [Lib.Direction]
-                   randNum :: GHC.Word.Word64 ->
-                 Lib.$sfromList
-                   @ GHC.Types.Double
-                   (GHC.List.zip
-                      @ Lib.Direction
-                      @ GHC.Types.Double
-                      actions
-                      (case Lib.$wrandomDoubles
-                              (case System.Random.Mersenne.Pure64.MTBlock.seedBlock
-                                      randNum of dt { System.Random.Mersenne.Pure64.Internal.MTBlock dt1 ->
-                               System.Random.Mersenne.Pure64.Internal.PureMT
-                                 dt1
-                                 0
-                                 (System.Random.Mersenne.Pure64.MTBlock.nextBlock
-                                    dt) }) of ww { (#,#) ww1 ww2 ->
-                       GHC.Base.map
-                         @ GHC.Types.Double
-                         @ GHC.Types.Double
-                         Lib.get_Qs7
-                         (GHC.Types.: @ GHC.Types.Double ww1 ww2) }))) -}
-d5a46e1fe5b18343741adf7d10ad20dc
+                 Lib.$wepisodes @ t w w1 ww1 ww2 ww3 w3 w4 }) -}
+01d0f2367071b1a422055d0abf27a2ca
   get_actions ::
-    Data.Foldable.Foldable t =>
-    Data.Vector.Vector (t a)
-    -> (GHC.Types.Int, GHC.Types.Int) -> [Lib.Direction]
-  {- Arity: 3,
-     Strictness: <L,1*U(A,A,A,A,A,A,A,A,A,A,1*C1(U(U)),A,A,A,A,A)><L,1*U(U,U,U)><L,1*U(1*U(U),U(U))>,
-     Unfolding: (\ @ (t :: * -> *)
-                   @ a
-                   $dFoldable :: Data.Foldable.Foldable t
-                   field :: Data.Vector.Vector (t a)
-                   current_position :: (GHC.Types.Int, GHC.Types.Int) ->
-                 GHC.List.filter
-                   @ Lib.Direction
-                   (let {
-                      x :: [Lib.Direction]
-                      = case current_position of ww { (,) ww1 ww2 ->
-                        case ww1 of ww3 { GHC.Types.I# ww4 ->
-                        Lib.$wget_barriers @ t @ a $dFoldable field ww4 ww2 } }
-                    } in
-                    \ y :: Lib.Direction ->
-                    case GHC.List.elem @ Lib.Direction Lib.$fEqDirection y x of wild {
-                      GHC.Types.False -> GHC.Types.True
-                      GHC.Types.True -> GHC.Types.False })
-                   Lib.get_Qs1) -}
-2b2f3be60eeb1a6458a3f2e32c664701
-  get_actions' ::
     Lib.Field Lib.Cell
     -> (GHC.Types.Int, GHC.Types.Int) -> [Lib.Direction]
   {- Arity: 2, Strictness: <L,U(U,U,U)><L,1*U(1*U(U),1*U(U))> -}
-ef877f75591f5d1c7369e322c0241350
-  get_actions1 :: GHC.Prim.Int# -> t a
-  {- Arity: 1, Strictness: <L,U>b -}
-9cba9bda406301c4f2359039532d051f
-  get_actions2 ::
-    Data.Vector.Generic.Base.Vector Data.Vector.Vector (t a)
-  {- Unfolding: (\ @ (t :: * -> *) @ a ->
-                 Data.Vector.$fVectorVectora
-                   @ (t a)
-                   (Data.Vector.Mutable.$fMVectorMVectora @ (t a))
-                     `cast`
-                   (Data.Vector.Generic.Mutable.Base.MVector
-                      (Sym (Data.Vector.TFCo:R:MutableVector[0])) <t a>_N)_R) -}
-7591fc67ca54af3e0b56a17ac00c1c08
+6880b85ff6226af0c5ce580339d46a0b
   get_barriers ::
     Data.Foldable.Foldable t =>
     Data.Vector.Vector (t a)
@@ -1790,19 +1391,28 @@ ef877f75591f5d1c7369e322c0241350
                  case w2 of ww { (,) ww1 ww2 ->
                  case ww1 of ww3 { GHC.Types.I# ww4 ->
                  Lib.$wget_barriers @ t @ a w w1 ww4 ww2 } }) -}
-5c1a15c662c0cebe3747043665ed0cc2
-  get_reward :: Lib.Field a -> (GHC.Types.Int, GHC.Types.Int) -> a
-  {- Arity: 2, Strictness: <S,U(U,U,U)><S(SS),1*U(1*U(U),1*U(U))>,
-     Inline: INLINE[0],
-     Unfolding: InlineRule (2, True, False)
-                (\ @ a w :: Lib.Field a w1 :: (GHC.Types.Int, GHC.Types.Int) ->
-                 case w of ww { Data.Vector.Vector ww1 ww2 ww3 ->
-                 case w1 of ww4 { (,) ww5 ww6 ->
-                 case ww5 of ww7 { GHC.Types.I# ww8 ->
-                 case ww6 of ww9 { GHC.Types.I# ww10 ->
-                 Lib.$wget_reward @ a ww1 ww2 ww3 ww8 ww10 } } } }) -}
-088babc9309829d43afb13ce21ba3f80
-  get_reward' ::
+cfb8553d097f999dcbd58275742cc787
+  get_barriers1 :: [Lib.Direction]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Lib.Direction
+                   Lib.ToRight
+                   (GHC.Types.[] @ Lib.Direction)) -}
+178f2e0a71300a0d57b3d30d146d44b7
+  get_barriers2 :: GHC.Prim.Int# -> t a
+  {- Arity: 1, Strictness: <L,U>b -}
+3488eb3bc94d173d257558406e085f8d
+  get_barriers3 ::
+    Data.Vector.Generic.Base.Vector Data.Vector.Vector (t a)
+  {- Unfolding: (\ @ (t :: * -> *) @ a ->
+                 Data.Vector.$fVectorVectora
+                   @ (t a)
+                   (Data.Vector.Mutable.$fMVectorMVectora @ (t a))
+                     `cast`
+                   (Data.Vector.Generic.Mutable.Base.MVector
+                      (Sym (Data.Vector.TFCo:R:MutableVector[0])) <t a>_N)_R) -}
+10779f7880b76686eb529be1127cb73b
+  get_reward ::
     GHC.Num.Num a =>
     Lib.Field Lib.Cell -> (GHC.Types.Int, GHC.Types.Int) -> a
   {- Arity: 3,
@@ -1817,12 +1427,12 @@ ef877f75591f5d1c7369e322c0241350
                  case w2 of ww4 { (,) ww5 ww6 ->
                  case ww5 of ww7 { GHC.Types.I# ww8 ->
                  case ww6 of ww9 { GHC.Types.I# ww10 ->
-                 Lib.$wget_reward' @ a w ww1 ww2 ww3 ww8 ww10 } } } }) -}
-1256f47b34f595db11893949c5b9f93e
-  get_reward'1 :: GHC.Prim.Int# -> GHC.Prim.Int# -> Lib.Cell
+                 Lib.$wget_reward @ a w ww1 ww2 ww3 ww8 ww10 } } } }) -}
+3a8d5f6d1be1270c07432b8bdb615bbe
+  get_reward1 :: GHC.Prim.Int# -> GHC.Prim.Int# -> Lib.Cell
   {- Arity: 2, Strictness: <L,U><L,U>b -}
-0a46dac35e2db908aec2d176be84665f
-  get_reward'2 ::
+a47736145b0ae9b9dcf973290851b583
+  get_reward2 ::
     Data.Vector.Generic.Base.Vector Data.Vector.Vector Lib.Cell
   {- Unfolding: (Data.Vector.$fVectorVectora
                    @ Lib.Cell
@@ -1830,12 +1440,12 @@ ef877f75591f5d1c7369e322c0241350
                      `cast`
                    (Data.Vector.Generic.Mutable.Base.MVector
                       (Sym (Data.Vector.TFCo:R:MutableVector[0])) <Lib.Cell>_N)_R) -}
-5d77571ccfeaf274b73213e5303f0ac4
-  get_reward'3 ::
+5b65f6aafe6d1890a65c2b3cb4d23913
+  get_reward3 ::
     GHC.Prim.Int# -> GHC.Prim.Int# -> Data.Vector.Vector Lib.Cell
   {- Arity: 2, Strictness: <L,U><L,U>b -}
-ec7d03c83d976546f3b103730c07349b
-  get_reward'4 ::
+7c011eeab6b1663b7c2abd48eb74a8d8
+  get_reward4 ::
     Data.Vector.Generic.Base.Vector
       Data.Vector.Vector (Data.Vector.Vector Lib.Cell)
   {- Unfolding: (Data.Vector.$fVectorVectora
@@ -1846,26 +1456,10 @@ ec7d03c83d976546f3b103730c07349b
                    (Data.Vector.Generic.Mutable.Base.MVector
                       (Sym (Data.Vector.TFCo:R:MutableVector[0]))
                       <Data.Vector.Vector Lib.Cell>_N)_R) -}
-d361905ee667a85b16c5983fa635df43
-  get_reward'5 :: GHC.Integer.Type.Integer
+42e3daa67be4dfa162b60c39e8a0b1c6
+  get_reward5 :: GHC.Integer.Type.Integer
   {- HasNoCafRefs, Unfolding: (__integer 100) -}
-6f60599b0ff34d81ee223fe531503b25
-  get_reward1 :: GHC.Prim.Int# -> GHC.Prim.Int# -> a
-  {- Arity: 2, Strictness: <L,U><L,U>b -}
-73796d7b04dd378b702ed171ec57695d
-  get_reward2 :: Data.Vector.Generic.Base.Vector Data.Vector.Vector a
-  {- Unfolding: (\ @ a ->
-                 Data.Vector.$fVectorVectora
-                   @ a
-                   (Data.Vector.Mutable.$fMVectorMVectora @ a)
-                     `cast`
-                   (Data.Vector.Generic.Mutable.Base.MVector
-                      (Sym (Data.Vector.TFCo:R:MutableVector[0])) <a>_N)_R) -}
-104e4a9debfc3e74fa522f2c65734c29
-  get_reward3 ::
-    GHC.Prim.Int# -> GHC.Prim.Int# -> Data.Vector.Vector a
-  {- Arity: 2, Strictness: <L,U><L,U>b -}
-b4be53cad6a68e587107e6f633782a18
+9f0ca03be01f46b0ec98200e9482d292
   init_Qs ::
     GHC.Classes.Ord k =>
     [k] -> GHC.Word.Word64 -> Lib.QValues k GHC.Types.Double
@@ -1894,9 +1488,42 @@ b4be53cad6a68e587107e6f633782a18
                        GHC.Base.map
                          @ GHC.Types.Double
                          @ GHC.Types.Double
-                         Lib.get_Qs7
+                         Lib.init_Qs1
                          (GHC.Types.: @ GHC.Types.Double ww1 ww2) }))) -}
-a68de0540ebd4ef87d23c647b0cde109
+55047a98d44c83c285202761f7ac96f7
+  init_Qs1 :: GHC.Types.Double -> GHC.Types.Double
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: GHC.Types.Double ->
+                 case ds of wild { GHC.Types.D# x ->
+                 GHC.Types.D# (GHC.Prim./## x 1000.0) }) -}
+4a9b505f1ca5d927f9ef7e5a78fa61f7
+  init_Qs_$sinit_Qs ::
+    [Lib.Direction]
+    -> GHC.Word.Word64 -> Lib.QValues Lib.Direction GHC.Types.Double
+  {- Arity: 2, Strictness: <S,1*U><L,1*U(U)>,
+     Unfolding: (\ actions :: [Lib.Direction]
+                   randNum :: GHC.Word.Word64 ->
+                 Lib.$sfromList
+                   @ GHC.Types.Double
+                   (GHC.List.zip
+                      @ Lib.Direction
+                      @ GHC.Types.Double
+                      actions
+                      (case Lib.$wrandomDoubles
+                              (case System.Random.Mersenne.Pure64.MTBlock.seedBlock
+                                      randNum of dt { System.Random.Mersenne.Pure64.Internal.MTBlock dt1 ->
+                               System.Random.Mersenne.Pure64.Internal.PureMT
+                                 dt1
+                                 0
+                                 (System.Random.Mersenne.Pure64.MTBlock.nextBlock
+                                    dt) }) of ww { (#,#) ww1 ww2 ->
+                       GHC.Base.map
+                         @ GHC.Types.Double
+                         @ GHC.Types.Double
+                         Lib.init_Qs1
+                         (GHC.Types.: @ GHC.Types.Double ww1 ww2) }))) -}
+c00a2beff9e660e719fc9851f3231552
   move ::
     (GHC.Num.Num b, GHC.Num.Num a) => (a, b) -> Lib.Direction -> (a, b)
   {- Arity: 4, HasNoCafRefs,
@@ -1911,9 +1538,6 @@ a68de0540ebd4ef87d23c647b0cde109
                    w3 :: Lib.Direction ->
                  case Lib.$wmove @ a @ b w w1 w2 w3 of ww { (#,#) ww1 ww2 ->
                  (ww1, ww2) }) -}
-2ec2c39ad28e56552252c6736a96ff3d
-  move1 :: GHC.Integer.Type.Integer
-  {- HasNoCafRefs, Unfolding: (__integer 1) -}
 6fb2d586ce7d0c200deb3cee98e9eafc
   show_field ::
     GHC.Real.Integral a =>
@@ -1960,7 +1584,7 @@ a68de0540ebd4ef87d23c647b0cde109
                         (GHC.Prim.+## (GHC.Prim.*## 0.1 wild) 1.1) of wild1 { DEFAULT ->
                  case GHC.Prim./## 1.0 wild1 of wild2 { DEFAULT ->
                  GHC.Types.D# (GHC.Prim.+## wild2 0.1) } } }) -}
-077f994ce61907dc96644b68d56dc0b8
+a170aa081a195134055d5bbd97aaba56
   update_Q ::
     (GHC.Num.Num a, GHC.Num.Num b, GHC.Classes.Ord a,
      GHC.Classes.Ord b) =>
@@ -1988,7 +1612,7 @@ a68de0540ebd4ef87d23c647b0cde109
                    = GHC.Classes.$fEq(,) @ a @ b $dEq1 $dEq
                  } in
                  let {
-                   lvl37 :: GHC.Classes.Ord (a, b)
+                   lvl35 :: GHC.Classes.Ord (a, b)
                    = GHC.Classes.$fOrd(,) @ a @ b a1 $dOrd $dOrd1
                  } in
                  \ prev_position :: (a, b)
@@ -1999,7 +1623,7 @@ a68de0540ebd4ef87d23c647b0cde109
                  Data.Map.Strict.alter
                    @ (Lib.QValues Lib.Direction GHC.Types.Double)
                    @ (a, b)
-                   lvl37
+                   lvl35
                    (\ ds :: GHC.Base.Maybe
                               (Lib.QValues Lib.Direction GHC.Types.Double)[OneShot] ->
                     GHC.Base.Just
@@ -2015,7 +1639,7 @@ a68de0540ebd4ef87d23c647b0cde109
                                     (Data.Map.Base.find
                                        @ (a, b)
                                        @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                                       lvl37
+                                       lvl35
                                        prev_position
                                        qs) of wild { GHC.Types.D# x ->
                              case reward of wild1 { GHC.Types.D# x1 ->
@@ -2031,7 +1655,7 @@ a68de0540ebd4ef87d23c647b0cde109
                                     (Data.Map.Base.find
                                        @ (a, b)
                                        @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                                       lvl37
+                                       lvl35
                                        (ww1, ww2)
                                        qs) of ww3 { DEFAULT ->
                              GHC.Types.D#
@@ -2046,7 +1670,7 @@ a68de0540ebd4ef87d23c647b0cde109
                          (Data.Map.Base.find
                             @ (a, b)
                             @ (Data.Map.Base.Map Lib.Direction GHC.Types.Double)
-                            lvl37
+                            lvl35
                             prev_position
                             qs)))
                    prev_position
@@ -2059,14 +1683,9 @@ instance GHC.Show.Show [Lib.Direction] = Lib.$fShowDirection
 "SPEC calc_p @ Double" [ALWAYS] forall $dFloating :: GHC.Float.Floating
                                                        GHC.Types.Double
   Lib.calc_p @ GHC.Types.Double $dFloating = Lib.calc_p_$scalc_p
-"SPEC get_actions @ Vector _" [ALWAYS] forall @ a
-                                              $dFoldable :: Data.Foldable.Foldable
-                                                              Data.Vector.Vector
-  Lib.get_actions @ Data.Vector.Vector @ a $dFoldable
-  = Lib.get_Qs_$sget_actions @ a
 "SPEC init_Qs @ Direction" [ALWAYS] forall $dOrd :: GHC.Classes.Ord
                                                       Lib.Direction
-  Lib.init_Qs @ Lib.Direction $dOrd = Lib.get_Qs_$sinit_Qs
+  Lib.init_Qs @ Lib.Direction $dOrd = Lib.init_Qs_$sinit_Qs
 "SPEC/Lib fromList @ Direction _" [ALWAYS] forall @ a
                                                   $dOrd :: GHC.Classes.Ord Lib.Direction
   Data.Map.Strict.fromList @ Lib.Direction @ a $dOrd
